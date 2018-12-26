@@ -1,0 +1,110 @@
+
+body{
+  text-align: center;
+  background: #222831;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #00ADB5;
+  font-size: 3em;
+}
+.game-starter {
+  display: none;
+  margin-top: 140px;
+}
+.message {
+  margin-top: 155px;
+  display: none;
+}
+.message-font {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+}
+.board {
+  margin: 150px auto auto auto;
+  width: 400px;
+  height: 400px;
+  background: #393E46;
+  border: 1px solid #EEEEEE;
+  border-radius: 15px;
+  box-shadow: 7px 10px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 12px 0.1px #89847e;
+}
+
+.grid-container {
+  visibility: hidden;
+  margin: 35px auto auto auto;
+  display: grid;
+  height: 330px;
+  width: 330px;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  grid-gap: 0px;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  color: #EEEEEE;
+  font-size: 2em;
+}
+.grid-item focus {
+  transform: translate(0px, 3px);
+  box-shadow: none;
+}
+.grid-item {
+  background: #222831;
+  border-radius: 5px;
+  box-shadow: 7px 5px 34px 1px rgba(0, 0, 0, 0.68), inset -2px -4px 5px 0.1px #89847e;
+  padding-top: 10px;
+  height: 100px;
+  width: 100px;
+  border-bottom: 2px solid #EEEEEE;
+  border-right: 2px solid #EEEEEE;
+}
+.grid-item:active {
+  transform: translate(0px, 3px);
+  box-shadow: none;
+}
+.grid-item-animate span {
+  transition: .9s linear;
+  color: #00ADB5;
+}
+.no-btm-border {
+  border-bottom: none;
+}
+.no-rght-border {
+  border-right: none;
+}
+button:focus {outline:0;} 
+button {
+  background: #222831;
+  font-family: sans-serif;
+  font-weight: 100;
+  color: #EEEEEE;
+  font-size: 1.1em;
+  margin: 15px;
+  height: 50px;
+  width: 50px;
+  border: 0.1px solid #EEEEEE;
+  border-radius: 5px;
+  box-shadow: 7px 5px 34px 1px rgba(0, 0, 0, 0.68), inset -1px -6px 5px 0.1px #89847e;
+}
+button:active {
+  transform: translate(0px, 3px);
+  box-shadow: none;
+}
+.footer {
+  bottom: 0;
+  left: 0; 
+  right: 0; 
+  text-align: center;
+  color: #515151;
+  font-size: 0.5em;
+  letter-spacing: 1.5px;
+  margin-top: 20px;
+}
+.footer a {
+  color: #515151;
+  font-weight: 550;
+  letter-spacing: 1.8px;
+}
+
+
