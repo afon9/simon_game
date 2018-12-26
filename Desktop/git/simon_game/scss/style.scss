@@ -1,0 +1,212 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+
+@mixin center {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+$back: #f0f2ef;
+$back: #1e1e24;
+$fore: #5c5346;
+$fore: #f1e4f3;
+body {
+	background: $back;
+}
+
+$yellow: #efbd26;
+$blue: #006992;
+$red: #d63b29;
+$green: #00cc66;
+
+.container {
+	@include center;
+	display: none;
+	height: 450px;
+	width: 450px;
+}
+.simon {
+	height: 120px;
+	width: 120px;
+	cursor: pointer;
+	background: none;
+	padding: none;
+	border: none;
+	margin: none;
+	box-shadow: none;
+	outline: none;
+	border-radius: 50%;
+	font-family: "Oswald";
+	font-size: 50px;
+	transition: background 0.2s ease-in;
+	transition: border 0.1s linear;
+	box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.68),
+		inset -1px -5px 12px 0.1px #89847e;
+}
+#red,
+#green {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+#red {
+	top: 5%;
+}
+#green {
+	bottom: 5%;
+}
+#yellow,
+#blue {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#yellow {
+	right: 0;
+}
+#blue {
+	left: 0;
+}
+
+$list: "yellow", "red", "blue", "green";
+$colors: $yellow, $red, $blue, $green;
+$ind: 1;
+@each $i in $list {
+	$colval: nth($colors, $ind);
+	##{$i} {
+		border: $colval solid 6px;
+		color: $colval;
+		&:hover {
+			background: $colval;
+			color: $back;
+			&:active {
+				box-shadow: none;
+				@if $i == "yellow" {
+					transform: translateY(-45%);
+				} @else if $i=="blue" {
+					transform: translateY(-45%);
+				} @else if $i=="red" {
+					transform: translateX(-50%) translateY(5%);
+				} @else {
+					transform: translateX(-50%) translateY(5%);
+				}
+			}
+		}
+	}
+	.clicked-#{$i} {
+		&:before {
+			display: block;
+			content: "";
+			opacity: 0;
+			background: $colval;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			border-radius: 50%;
+			left: 0;
+			top: 0;
+			animation: click 0.4s ease-in 1;
+		}
+	}
+	$ind: $ind+1;
+}
+.options {
+	@include center;
+	display: block;
+	height: 130px;
+	width: 130px;
+}
+.start {
+	height: 50px;
+	width: 50px;
+	display: block;
+	@include center;
+	background: none;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	color: $fore;
+	cursor: pointer;
+	& i {
+		font-size: 40px;
+	}
+	&:active {
+		color: $red;
+	}
+}
+.strict {
+	position: absolute;
+	bottom: 5px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	outline: none;
+	color: $fore;
+	height: 40px;
+	font-size: 25px;
+	font-family: "Oswald";
+	left: 10px;
+}
+.steps {
+	display: block;
+	text-align: right;
+	position: absolute;
+	bottom: 5px;
+	right: 0;
+	& .text {
+		margin-right: 20px;
+		font-size: 25px;
+		color: $fore;
+		font-family: "Oswald";
+	}
+}
+.status {
+	display: block;
+	position: absolute;
+	font-size: 23px;
+	font-weight: 300;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 0px;
+	font-family: "Oswald";
+	color: $fore;
+}
+.disabled {
+	pointer-events: none;
+	cursor: wait;
+}
+.footer {
+	display: block;
+	position: absolute;
+	font-size: 16px;
+	font-weight: 400;
+	color: #2E2E2E;
+	letter-spacing: 1px;
+	font-family: "Orbitron", sans-serif;
+	left: 20%;
+	bottom: 10%;
+	transform: translateX(-50%);
+	a {
+		font-weight: 500;
+		font-size: 18px;
+		color: #2E2E2E;
+		text-decoration: none;
+		&:hover {
+			color: #585858;
+		}
+	}
+}
+@keyframes click {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+//Design idea from Saumitra Bose

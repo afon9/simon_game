@@ -1,0 +1,285 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300);
+@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+body {
+  background: #1e1e24;
+}
+
+.container {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  height: 450px;
+  width: 450px;
+}
+
+.simon {
+  height: 120px;
+  width: 120px;
+  cursor: pointer;
+  background: none;
+  padding: none;
+  border: none;
+  margin: none;
+  box-shadow: none;
+  outline: none;
+  border-radius: 50%;
+  font-family: "Oswald";
+  font-size: 50px;
+  transition: background 0.2s ease-in;
+  transition: border 0.1s linear;
+  box-shadow: 5px 7px 20px 2px rgba(0, 0, 0, 0.68), inset -1px -5px 12px 0.1px #89847e;
+}
+
+#red,
+#green {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#red {
+  top: 5%;
+}
+
+#green {
+  bottom: 5%;
+}
+
+#yellow,
+#blue {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#yellow {
+  right: 0;
+}
+
+#blue {
+  left: 0;
+}
+
+#yellow {
+  border: #efbd26 solid 6px;
+  color: #efbd26;
+}
+#yellow:hover {
+  background: #efbd26;
+  color: #1e1e24;
+}
+#yellow:hover:active {
+  box-shadow: none;
+  transform: translateY(-45%);
+}
+
+.clicked-yellow:before {
+  display: block;
+  content: "";
+  opacity: 0;
+  background: #efbd26;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  animation: click 0.4s ease-in 1;
+}
+
+#red {
+  border: #d63b29 solid 6px;
+  color: #d63b29;
+}
+#red:hover {
+  background: #d63b29;
+  color: #1e1e24;
+}
+#red:hover:active {
+  box-shadow: none;
+  transform: translateX(-50%) translateY(5%);
+}
+
+.clicked-red:before {
+  display: block;
+  content: "";
+  opacity: 0;
+  background: #d63b29;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  animation: click 0.4s ease-in 1;
+}
+
+#blue {
+  border: #006992 solid 6px;
+  color: #006992;
+}
+#blue:hover {
+  background: #006992;
+  color: #1e1e24;
+}
+#blue:hover:active {
+  box-shadow: none;
+  transform: translateY(-45%);
+}
+
+.clicked-blue:before {
+  display: block;
+  content: "";
+  opacity: 0;
+  background: #006992;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  animation: click 0.4s ease-in 1;
+}
+
+#green {
+  border: #00cc66 solid 6px;
+  color: #00cc66;
+}
+#green:hover {
+  background: #00cc66;
+  color: #1e1e24;
+}
+#green:hover:active {
+  box-shadow: none;
+  transform: translateX(-50%) translateY(5%);
+}
+
+.clicked-green:before {
+  display: block;
+  content: "";
+  opacity: 0;
+  background: #00cc66;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  animation: click 0.4s ease-in 1;
+}
+
+.options {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  height: 130px;
+  width: 130px;
+}
+
+.start {
+  height: 50px;
+  width: 50px;
+  display: block;
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  color: #f1e4f3;
+  cursor: pointer;
+}
+.start i {
+  font-size: 40px;
+}
+.start:active {
+  color: #d63b29;
+}
+
+.strict {
+  position: absolute;
+  bottom: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  color: #f1e4f3;
+  height: 40px;
+  font-size: 25px;
+  font-family: "Oswald";
+  left: 10px;
+}
+
+.steps {
+  display: block;
+  text-align: right;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+.steps .text {
+  margin-right: 20px;
+  font-size: 25px;
+  color: #f1e4f3;
+  font-family: "Oswald";
+}
+
+.status {
+  display: block;
+  position: absolute;
+  font-size: 23px;
+  font-weight: 300;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0px;
+  font-family: "Oswald";
+  color: #f1e4f3;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: wait;
+}
+
+.footer {
+  display: block;
+  position: absolute;
+  font-size: 16px;
+  font-weight: 400;
+  color: #2E2E2E;
+  letter-spacing: 1px;
+  font-family: "Orbitron", sans-serif;
+  left: 20%;
+  bottom: 10%;
+  transform: translateX(-50%);
+}
+.footer a {
+  font-weight: 500;
+  font-size: 18px;
+  color: #2E2E2E;
+  text-decoration: none;
+}
+.footer a:hover {
+  color: #585858;
+}
+
+@keyframes click {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
